@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Annara — Happy Birthday</title>
+<style>
+:root{--navy:#07152f;--maroon:#8b1538;--blue:#004d98;--gold:#e8c56a;--cream:#f7f1e6}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Georgia,"Times New Roman",serif;background:var(--navy);color:var(--cream)}
+body{overflow-x:hidden}
+.screen{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;padding:28px}
+.hidden{display:none!important}
+.bg{position:fixed;inset:0;z-index:-2;background:
+ radial-gradient(circle at 20% 20%,rgba(0,77,152,.28),transparent 34%),
+ radial-gradient(circle at 80% 75%,rgba(139,21,56,.34),transparent 36%),
+ linear-gradient(135deg,#061126,#0b1731 50%,#170d1d)}
+.bg:after{content:"";position:absolute;inset:0;opacity:.07;background:repeating-linear-gradient(90deg,transparent 0 55px,#fff 56px 58px,transparent 59px 110px)}
+.card{width:min(920px,94vw);border:1px solid rgba(232,197,106,.38);background:rgba(5,15,34,.82);backdrop-filter:blur(14px);box-shadow:0 25px 80px rgba(0,0,0,.45);border-radius:22px;padding:clamp(26px,5vw,58px);text-align:center}
+.crest{width:72px;height:72px;border:2px solid var(--gold);border-radius:50%;margin:0 auto 20px;display:grid;place-items:center;font-weight:bold;font-family:Arial,sans-serif;letter-spacing:-2px;background:linear-gradient(90deg,#7b1235 50%,#064a91 50%);box-shadow:0 0 30px rgba(232,197,106,.15)}
+.eyebrow{font:600 12px Arial,sans-serif;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+h1{font-size:clamp(42px,8vw,78px);font-weight:400;letter-spacing:-2px;margin:4px 0 12px}
+.sub{font:14px Arial,sans-serif;color:#cbd1dd;letter-spacing:1px}
+.goal-wrap{margin:30px auto 22px;width:min(760px,100%);height:320px;position:relative;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.12);background:linear-gradient(#0a1b38 0 52%,#123c2b 52% 100%)}
+.goal-wrap:before{content:"";position:absolute;left:0;right:0;top:52%;height:1px;background:rgba(255,255,255,.12)}
+.goal{position:absolute;right:9%;top:25px;width:48%;height:62%;border:4px solid white;border-bottom-width:6px;box-shadow:0 0 0 1px rgba(0,0,0,.4);background:repeating-linear-gradient(90deg,transparent 0 24px,rgba(255,255,255,.28) 25px),repeating-linear-gradient(0deg,transparent 0 22px,rgba(255,255,255,.28) 23px)}
+.post{position:absolute;left:50%;top:0;height:100%;width:2px;background:rgba(255,255,255,.18)}
+.ball{position:absolute;width:38px;height:38px;border-radius:50%;left:13%;bottom:15%;background:#fff;box-shadow:0 5px 12px rgba(0,0,0,.35);cursor:pointer;transition:transform .1s}
+.ball:after{content:"✦";position:absolute;inset:0;display:grid;place-items:center;color:#111;font-size:17px}
+.keeper{position:absolute;right:25%;top:37%;font-size:68px;line-height:1;filter:drop-shadow(0 5px 5px rgba(0,0,0,.35));transition:transform .35s}
+.goal-label{position:absolute;right:10%;bottom:12px;font:600 10px Arial,sans-serif;letter-spacing:3px;color:rgba(255,255,255,.65)}
+.kick{animation:kick .8s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes kick{to{left:78%;bottom:55%;transform:scale(.65) rotate(720deg)}}
+.save{animation:save .55s ease forwards}
+@keyframes save{50%{transform:translateX(-45px) rotate(-8deg)}100%{transform:translateX(0)}}
+button{border:1px solid rgba(232,197,106,.6);background:transparent;color:var(--cream);border-radius:999px;padding:13px 25px;font:600 12px Arial,sans-serif;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:.25s}
+button:hover{background:var(--gold);color:#111;transform:translateY(-2px)}
+.hint{font:12px Arial,sans-serif;color:#9fa9bb;margin-top:13px}
+.message-card{max-width:900px}
+.message{font-size:clamp(28px,5vw,52px);line-height:1.3;font-weight:400;margin:28px auto;max-width:760px}
+.message span{display:block;margin-top:25px;color:var(--gold)}
+.smallnote{font:13px Arial,sans-serif;line-height:1.8;color:#b9c0ce;max-width:650px;margin:auto}
+.signature{margin-top:35px;font-size:20px;font-style:italic}
+.music{position:fixed;right:18px;bottom:18px;background:rgba(5,15,34,.82);padding:10px 14px;border:1px solid rgba(232,197,106,.3);border-radius:999px;font:10px Arial,sans-serif;letter-spacing:1px;color:#cbd1dd}
+.fade{animation:fade .9s ease both}@keyframes fade{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
+.confetti{position:fixed;width:6px;height:12px;top:-20px;animation:fall 2.8s linear forwards;z-index:20}@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
+@media(max-width:600px){.goal-wrap{height:260px}.goal{width:58%;right:4%}.keeper{right:20%;font-size:54px}.ball{left:8%}}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+
+<section id="opening" class="screen">
+  <div class="card fade">
+    <div class="crest">FCB</div>
+    <div class="eyebrow">A little birthday game for</div>
+    <h1>Annara</h1>
+    <div class="sub">Before the message... one shot.</div>
+    <div class="goal-wrap" id="field">
+      <div class="goal"><div class="post"></div></div>
+      <div class="keeper" id="keeper">🧤</div>
+      <div class="ball" id="ball" title="Kick the ball"></div>
+      <div class="goal-label">THE GOAL</div>
+    </div>
+    <button id="kickBtn">Kick the ball</button>
+    <div class="hint">Tap the ball or the button to take the shot.</div>
+  </div>
+</section>
+
+<section id="messageScreen" class="screen hidden">
+  <div class="card message-card fade">
+    <div class="crest">FCB</div>
+    <div class="eyebrow">Goal!</div>
+    <div class="message">
+      Happy Birthday,<br>
+      my 1 n only fav deculll.
+      <span>❤️</span>
+    </div>
+    <div class="smallnote">
+      Today is your day, Annara. I hope this little corner of the internet
+      gives you a tiny smile and reminds you how special you are.
+    </div>
+    <div class="signature">— from someone who made you take the shot first.</div>
+  </div>
+</section>
+
+<div id="musicLabel" class="music hidden">♫ Barça anthem</div>
+<audio id="anthem" src="Official-Anthem.wav" preload="auto"></audio>
+
+<script>
+const ball=document.getElementById('ball'), btn=document.getElementById('kickBtn'),
+      keeper=document.getElementById('keeper'), opening=document.getElementById('opening'),
+      message=document.getElementById('messageScreen'), audio=document.getElementById('anthem'),
+      musicLabel=document.getElementById('musicLabel');
+let done=false;
+
+function confetti(){
+  for(let i=0;i<45;i++){
+    const c=document.createElement('div'); c.className='confetti';
+    c.style.left=Math.random()*100+'vw';
+    c.style.animationDelay=(Math.random()*1.2)+'s';
+    c.style.transform=`rotate(${Math.random()*360}deg)`;
+    c.style.background=i%2?'#8b1538':'#e8c56a';
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),4000);
+  }
+}
+function shoot(){
+  if(done)return; done=true;
+  ball.classList.add('kick');
+  keeper.classList.add('save');
+  setTimeout(()=>{
+    opening.classList.add('hidden');
+    message.classList.remove('hidden');
+    message.querySelector('.card').classList.remove('fade');
+    void message.querySelector('.card').offsetWidth;
+    message.querySelector('.card').classList.add('fade');
+    audio.volume=.55;
+    audio.play().catch(()=>{});
+    musicLabel.classList.remove('hidden');
+    confetti();
+  },850);
+}
+ball.addEventListener('click',shoot);
+btn.addEventListener('click',shoot);
+</script>
+</body>
+</html>
